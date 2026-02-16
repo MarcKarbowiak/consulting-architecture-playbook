@@ -1,51 +1,39 @@
 # System Design Case Studies
 
-This folder contains real-world architecture case studies demonstrating how complex systems are designed, evaluated, and delivered in consultancy environments.
+This folder contains anonymized case studies demonstrating consulting-grade architecture, modernization, and distributed systems engineering across multiple domains.
 
-Each case study emphasizes:
+Each case study follows a consistent structure:
 
-- Business and technical constraints
-- Architectural reasoning
-- Data modeling decisions
-- Failure modes and mitigations
-- Scalability considerations
-- Trade-offs between speed, cost, and maintainability
-
----
-
-## Purpose
-
-In boutique digital consultancies, clients rarely need theoretical perfection — they need pragmatic, defensible architecture aligned with business outcomes.
-
-These case studies illustrate how to:
-
-- Translate ambiguous requirements into system boundaries
-- Make clear trade-offs under uncertainty
-- Avoid over-engineering
-- Design for evolution rather than premature complexity
+1. Executive Summary  
+2. Business Context & Constraints  
+3. High-Level Architecture  
+4. Data Modeling Strategy  
+5. Key Architectural Decisions  
+6. Failure Modes & Mitigations  
+7. Security & Operational Considerations  
+8. Scaling & Future Evolution  
+9. Outcomes / Lessons Learned  
 
 ---
 
-## Case Study Structure
+## Portfolio Coverage
 
-Each document typically includes:
+These case studies collectively demonstrate experience across:
 
-1. Executive Summary
-2. Business Goals and Constraints
-3. High-Level Architecture Overview
-4. Key Technology Decisions
-5. Data Modeling Strategy
-6. Failure Modes and Risk Mitigation
-7. Scaling Path and Future Evolution
-8. Lessons Learned
+- AI-enabled multi-tenant SaaS systems
+- Enterprise workflow modernization
+- Distributed synchronization and reliability engineering
+- Offline-first mobile system design
 
----
+The examples emphasize:
 
-## Intended Audience
+- Explicit trade-offs
+- Security-aware architecture
+- Failure-mode thinking
+- Scalability planning
+- Pragmatic decision-making under constraints
 
-- Engineering leads evaluating architectural maturity
-- Architects reviewing trade-off clarity
-- Technical decision-makers assessing system design depth
+All company and client names have been anonymized.
 
-The goal is to demonstrate structured thinking and delivery-oriented architectural leadership.
+The goal is to demonstrate architectural depth, not product marketing.
 

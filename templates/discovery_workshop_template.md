@@ -1,8 +1,9 @@
 # Discovery Workshop Template
 
-A structured template for running client-facing technical discovery sessions in boutique consultancy environments.
+A structured facilitation guide for client-facing technical discovery sessions in boutique consultancy environments.
 
 This template is designed to:
+
 - Reduce ambiguity early
 - Surface hidden constraints and risks
 - Align business goals with technical strategy
@@ -15,63 +16,57 @@ This template is designed to:
 ## Objective
 Clearly state the purpose of the session.
 
-Example:
-- Modernize legacy platform
-- Define architecture for new SaaS product
-- Evaluate scalability bottlenecks
-- Assess AI enablement feasibility
-
 ## Success Criteria
-What must be clarified by the end of the session?
+What must be clarified by the end?
 
 - Defined problem scope
 - Identified system boundaries
-- Known integration points
 - Agreed non-functional priorities
-- Clear next-step architecture direction
+- Clear architectural direction
 
 ---
 
 # 2. Business Context & Drivers
 
 ## Business Goals
-- Revenue growth?
-- Cost reduction?
-- Risk mitigation?
-- Regulatory compliance?
-- Time-to-market acceleration?
+- Revenue growth
+- Cost reduction
+- Risk mitigation
+- Regulatory compliance
+- Time-to-market acceleration
 
 ## Stakeholders
 - Executive sponsor
 - Product owner
 - Engineering lead
-- Compliance/security representative
+- Security / compliance representative
 
 ## Key Metrics
 What does success look like?
-- Latency targets
-- User growth expectations
+
+- Growth targets
+- Latency or availability targets
 - Deployment frequency
-- Operational cost limits
+- Cost ceilings
 
 ---
 
 # 3. Current State Assessment
 
 ## Existing Architecture
-- Monolith or distributed?
-- On-prem or cloud?
-- Vendor dependencies?
+- Monolith or distributed
+- On-prem or cloud
+- Vendor dependencies
 
 ## Pain Points
+- Reliability issues
 - Performance bottlenecks
 - Deployment friction
-- Reliability issues
 - Developer productivity constraints
 
 ## Technical Debt
 - Outdated frameworks
-- Manual deployment steps
+- Manual processes
 - Missing observability
 
 ---
@@ -81,12 +76,6 @@ What does success look like?
 ## Core User Flows
 Document primary workflows step-by-step.
 
-Example:
-1. User uploads document
-2. System processes content
-3. Insights generated
-4. Results exported
-
 ## Edge Cases
 - Large inputs
 - Partial failures
@@ -94,28 +83,27 @@ Example:
 
 ---
 
-# 5. Non-Functional Requirements (Critical for Architecture)
+# 5. Non-Functional Requirements
 
 ## Scalability
-- Expected users (now vs 12–24 months)
-- Peak load patterns
+- Current vs projected load
 
 ## Availability
-- Required uptime (99%, 99.9%, 99.99%)
-- Business impact of downtime
+- Uptime requirements
+- Downtime impact
 
 ## Security & Compliance
-- PII?
+- PII present?
 - Regulatory requirements?
 - Data residency constraints?
 
 ## Performance
-- Acceptable response time
-- Batch vs real-time expectations
+- Response time targets
+- Batch vs real-time
 
 ## Cost Constraints
-- Budget ceiling
-- Cost predictability requirements
+- Budget limits
+- Cost predictability
 
 ---
 
@@ -130,27 +118,19 @@ Example:
 ## Data Flow
 Sketch high-level data movement.
 
-- Ingestion
-- Processing
-- Storage
-- Output
-
 ---
 
 # 7. Architectural Hypotheses
 
-During workshop, propose and test early architecture directions.
+Propose and test early architecture directions.
 
 Examples:
 - Modular monolith vs microservices
-- Managed cloud services vs container orchestration
+- Managed services vs container orchestration
 - NoSQL vs relational
-- Event-driven processing vs synchronous APIs
+- Event-driven vs synchronous APIs
 
-Document:
-- Why it might work
-- Risks
-- Unknowns
+Document risks and unknowns.
 
 ---
 
@@ -164,48 +144,38 @@ Document:
 ## Organizational Risks
 - Skill gaps
 - Change resistance
-- Delivery timeline pressure
+- Timeline pressure
 
 ## Mitigation Ideas
-Outline possible early experiments or proofs-of-concept.
+- Proof-of-concept spikes
+- Load testing experiments
+- Data modeling validation
 
 ---
 
-# 9. Early Unlocks (High-Impact Next Steps)
+# 9. Early Unlocks
 
-Identify 1–3 actions that reduce uncertainty quickly:
-
-- Proof-of-concept for critical path
-- Load test small component
-- Data modeling spike
-- Authentication integration spike
+Identify 1–3 high-impact actions that reduce uncertainty quickly.
 
 ---
 
 # 10. Output Artifacts
 
-At the end of the workshop, produce:
+At workshop conclusion, produce:
 
 - Architecture summary (1–2 pages)
 - Identified trade-offs
 - Risk register
-- Proposed delivery roadmap (high-level)
-- Open questions requiring follow-up
+- High-level roadmap
+- Open questions list
 
 ---
 
-# Facilitation Notes (Consulting Perspective)
+# Facilitation Principles
 
-- Keep architecture discussions tied to business drivers
-- Avoid over-engineering during discovery
+- Tie technical decisions to business drivers
+- Avoid premature over-engineering
 - Make trade-offs explicit
 - Capture assumptions clearly
-- Validate understanding before moving forward
-- End with clear next steps and ownership
-
----
-
-# Example Closing Statement
-
-"Based on today’s session, the pragmatic path is to start with a modular cloud-native architecture using managed services to reduce operational overhead. We will validate scalability assumptions early and evolve complexity only when justified by growth or regulatory needs."
+- End with defined next steps and ownership
 
