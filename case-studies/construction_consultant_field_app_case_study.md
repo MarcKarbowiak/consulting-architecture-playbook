@@ -23,7 +23,17 @@ Manual document workflows caused billing errors, slow invoice turnaround, and po
 
 ---
 
-## 3. High-Level Architecture
+## 3. My Role & Scope
+
+- Led architectural design of cloud-native solution
+- Contributed hands-on to React and C# implementation
+- Defined structured data model replacing PDF forms
+- Established CI/CD pipelines for iterative delivery
+- Worked closely with field users to refine UX and workflows
+
+---
+
+## 4. High-Level Architecture
 
 - React frontend
 - C# API (Azure App Service)
@@ -32,36 +42,24 @@ Manual document workflows caused billing errors, slow invoice turnaround, and po
 
 ---
 
-## Architecture Diagrams
+## 5. Modernization as Foundation Building
 
-```mermaid
-flowchart LR
-  Crew --> UI[React Field App]
-  UI --> API[C# API]
-  API --> DB[Cosmos DB]
-  Finance --> DB
-  CI --> API
-```
+- Replaced unstructured PDFs with structured data capture
+- Centralized validation logic to prevent billing errors
+- Introduced versioned schema evolution
+- Built delivery pipeline enabling controlled iteration
 
 ---
 
-## 4. Data Modeling Strategy
+## 6. Key Architectural Decisions & Trade-offs
 
-- Structured form records
-- Centralized rate/code validation
-- Flexible schema evolution via document model
-
----
-
-## 5. Key Architectural Decisions
-
-- Replace PDFs with structured data capture
-- Centralize validation logic
-- CI/CD-driven iterative delivery
+- Document database for flexible schema evolution
+- Incremental rollout rather than big-bang deployment
+- Shared validation services to avoid duplication
 
 ---
 
-## 6. Failure Modes & Mitigations
+## 7. Failure Modes & Mitigations
 
 - Field resistance → iterative UX refinement
 - Schema drift → versioned models
@@ -69,7 +67,7 @@ flowchart LR
 
 ---
 
-## 7. Security & Operational Considerations
+## 8. Security & Operational Considerations
 
 - Role-based access (crew vs admin)
 - Controlled rate assignment
@@ -77,24 +75,20 @@ flowchart LR
 
 ---
 
-## 8. Scaling & Future Evolution
+## 9. What I Would Refine Today
 
-- Support for additional business units
-- Reporting enhancements
-- Potential mobile-first refinement
+- Introduce richer operational telemetry
+- Add more granular feature-flag rollout controls
+- Enhance mobile-first optimization
 
 ---
 
-## 9. Outcomes
+## 10. Outcomes & Lessons
 
-- 750 users (~50% workforce)
+- 750 users (~50% workforce adoption)
 - Faster invoicing
 - Reduced billing corrections
-- Improved searchability
+- Improved searchability and auditability
 
----
-
-## Summary
-
-This project demonstrates pragmatic modernization of document workflows into a scalable, validated, cloud-native system with measurable operational improvements.
+This project illustrates modernization focused on creating a stable foundation for future growth rather than simply digitizing existing processes.
 

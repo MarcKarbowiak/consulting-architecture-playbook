@@ -24,7 +24,17 @@ Attendance and credits were previously tracked using paper cards and pen, leadin
 
 ---
 
-## 3. High-Level Architecture
+## 3. My Role & Scope
+
+- Designed overall application architecture
+- Implemented Android app using Cordova
+- Designed relational SQLite schema
+- Built transactional credit tracking logic
+- Provided operational guidance for backup procedures
+
+---
+
+## 4. High-Level Architecture
 
 - Cordova-based Android app
 - SQLite local database
@@ -32,33 +42,11 @@ Attendance and credits were previously tracked using paper cards and pen, leadin
 
 ---
 
-## Architecture Diagram
+## 5. Key Architectural Decisions & Trade-offs
 
-```mermaid
-flowchart LR
-  Student --> App
-  Admin --> App
-  App --> SQLiteDB
-  SQLiteDB --> Backup
-```
-
----
-
-## 4. Data Modeling Strategy
-
-- Users table
-- Sessions table
-- Attendance table
-- Credit transaction tracking
-- Transaction-safe updates
-
----
-
-## 5. Key Architectural Decisions
-
-- Offline-first design
-- Local SQLite over cloud DB
-- Simplified operational footprint
+- Offline-first design over cloud dependency
+- Local SQLite for simplicity and reliability
+- Minimal operational footprint to match business scale
 
 ---
 
@@ -72,28 +60,25 @@ flowchart LR
 
 ## 7. Security & Operational Considerations
 
-- Local data protection
+- Local data protection practices
 - Role separation (admin vs student)
-- Controlled deletion/deactivation of users
+- Controlled user deactivation rather than deletion
 
 ---
 
-## 8. Scaling & Future Evolution
+## 8. What I Would Refine Today
 
-- Potential migration to cloud-backed API
-- Multi-device synchronization if business grows
+- Introduce optional lightweight cloud sync
+- Add automated encrypted backup option
+- Improve observability around credit anomalies
 
 ---
 
-## 9. Outcomes
+## 9. Outcomes & Lessons
 
 - Eliminated manual tracking errors
 - Improved credit accuracy
 - Increased operational efficiency
 
----
-
-## Summary
-
-YogaFlow illustrates pragmatic, constraint-driven architecture where simplicity, reliability, and cost control outweigh unnecessary cloud complexity.
+This project illustrates constraint-driven greenfield design: building only what the business needed, no more, no less.
 

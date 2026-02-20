@@ -2,7 +2,7 @@
 
 ## 1. Executive Summary
 
-MeetingAware is a multi-tenant SaaS platform that transforms unstructured meeting transcripts into structured, compliance-ready insights using Retrieval-Augmented Generation (RAG) and large language models. The architecture prioritizes tenant isolation, secure-by-design cloud patterns, and pragmatic delivery velocity.
+MeetingAware is a multi-tenant SaaS platform that transforms unstructured meeting transcripts into structured, compliance-ready insights using Retrieval-Augmented Generation (RAG) and large language models. The architecture prioritizes tenant isolation, secure-by-design cloud patterns, and disciplined AI validation.
 
 ---
 
@@ -21,10 +21,22 @@ Organizations generate high volumes of meeting data containing decisions, risks,
 - Sensitive PII in transcripts
 - Small engineering team
 - Rapidly evolving product requirements
+- Need for fast iteration without compromising governance
 
 ---
 
-## 3. High-Level Architecture
+## 3. My Role & Scope
+
+- Defined overall system architecture and tenant isolation model
+- Implemented core ingestion, chunking, and extraction pipelines
+- Designed structured output schemas for signal extraction
+- Built regression validation pipeline for AI outputs
+- Established CI/CD delivery discipline
+- Worked directly with early users to refine signal models
+
+---
+
+## 4. High-Level Architecture
 
 ### Core Stack
 - React frontend
@@ -41,94 +53,59 @@ Modular monolith with asynchronous processing extensions.
 
 ---
 
-## Architecture Diagrams
+## 5. Foundational Decisions Made Early
 
-### Context Diagram
-
-```mermaid
-flowchart LR
-  User --> WebApp
-  WebApp --> API
-  API --> Cosmos
-  API --> Blob
-  API --> Functions
-  Functions --> Cosmos
-  Functions --> Blob
-  Functions --> AISearch
-  Functions --> OpenAI
-```
-
-### Container Diagram
-
-```mermaid
-flowchart TB
-  FE[React UI] --> API[Node API]
-  API --> DB[Cosmos DB]
-  API --> BLOB[Blob Storage]
-  API --> INGEST[Ingestion Function]
-  INGEST --> CHUNK[Chunking]
-  CHUNK --> INDEX[AI Search]
-  INDEX --> EXTRACT[LLM Extraction]
-  EXTRACT --> STORE[Persist Results]
-```
+- TenantId used as partition key from day one
+- Async processing boundary established before scale pressure
+- Structured outputs separated from raw transcripts
+- Managed services preferred over Kubernetes to reduce operational load
+- Regression validation integrated early to reduce AI risk
 
 ---
 
-## 4. Data Modeling Strategy
+## 6. Key Architectural Decisions & Trade-offs
 
-- TenantId as partition key
-- Document-based flexible schema
-- Versioned knowledge base for RAG
-- Structured outputs stored separately from raw transcript
-
----
-
-## 5. Key Architectural Decisions
-
-- Managed services over Kubernetes
-- Document DB over relational
-- Hybrid tenant isolation model
-- Modular monolith first
+- Managed services over container orchestration for speed and simplicity
+- Document DB over relational to accommodate evolving AI schemas
+- Hybrid search (vector + keyword) to reduce retrieval misses
+- Modular monolith to avoid premature microservices
 
 ---
 
-## 6. Failure Modes & Mitigations
+## 7. Failure Modes & Mitigations
 
-- Token limits → chunking + map-reduce
-- Retrieval misses → hybrid search + regression validation
+- Token limits → chunking + map-reduce strategy
+- Retrieval misses → hybrid search + validation harness
 - Cross-tenant leakage risk → enforced TenantId scoping
 - Hot partitions → monitoring + isolation strategy
 
 ---
 
-## 7. Security & Operational Considerations
+## 8. Security & Operational Considerations
 
 - Managed identity between services
 - Tenant-boundary enforcement at API layer
 - Optional PII redaction pipeline
 - Controlled transcript lifecycle
-- Regression pipeline for AI outputs
+- Evaluation harness to detect extraction drift
 
 ---
 
-## 8. Scaling & Future Evolution
+## 9. What I Would Refine Today
 
-- Independent scaling of API and Functions
-- Dedicated environments for large tenants
-- Potential service extraction if bounded contexts grow
-
----
-
-## 9. Lessons Learned
-
-- AI systems require evaluation harnesses
-- Tenant partitioning discipline is critical
-- Managed services accelerate early delivery
-- Explicit trade-offs reduce architectural drift
+- Introduce more granular cost telemetry around embeddings
+- Further isolate indexing workloads for large tenants
+- Formalize model comparison testing across deployments
+- Add structured hallucination scoring
 
 ---
 
-## Summary
+## 10. Outcomes & Lessons
 
-MeetingAware demonstrates pragmatic AI-enabled SaaS architecture balancing velocity, scalability, and governance in a consultancy-style delivery context.
+- Demonstrated pragmatic AI-enabled SaaS architecture
+- Established governance patterns suitable for client environments
+- Balanced velocity and security within a small-team constraint
+- Reinforced importance of treating AI systems as testable infrastructure
+
+This system reflects a greenfield foundation approach: start simple, make boundaries explicit, and evolve deliberately.
 

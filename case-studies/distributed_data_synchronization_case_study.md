@@ -2,14 +2,14 @@
 
 ## 1. Executive Summary
 
-A centralized .NET synchronization service processed queued messages from distributed retail terminals, transforming and loading data into Oracle while pushing inventory updates back to terminals. The system was modernized to improve reliability, throughput, and observability.
+A centralized .NET synchronization service processed queued messages from distributed retail terminals, transforming and loading data into Oracle while pushing updates back to terminals. The system was modernized to improve reliability, throughput, and operational visibility.
 
 ---
 
 ## 2. Business Context & Constraints
 
 ### Problem
-Frequent data mismatches, silent message loss, and manual resynchronizations undermined reliability.
+Frequent data mismatches, silent message loss, and manual resynchronizations undermined reliability and operational confidence.
 
 ### Objectives
 - Eliminate data loss
@@ -20,10 +20,21 @@ Frequent data mismatches, silent message loss, and manual resynchronizations und
 - Pre-cloud infrastructure
 - WCF (SOAP) communication
 - SQL-based queue
+- High operational sensitivity
 
 ---
 
-## 3. High-Level Architecture
+## 3. My Role & Scope
+
+- Led architectural redesign of synchronization flow
+- Implemented controlled parallel processing model
+- Introduced idempotent message handling
+- Designed retry and dead-letter mechanisms
+- Improved logging and operational traceability
+
+---
+
+## 4. High-Level Architecture
 
 - Retail terminals (SQL Server local)
 - WCF service endpoints
@@ -33,34 +44,12 @@ Frequent data mismatches, silent message loss, and manual resynchronizations und
 
 ---
 
-## Architecture Diagram
+## 5. Key Architectural Decisions & Trade-offs
 
-```mermaid
-flowchart LR
-  Terminal --> WCF
-  WCF --> Queue[SQL Queue]
-  Queue --> SyncApp[.NET Processor]
-  SyncApp --> Oracle
-  SyncApp --> DeadLetter
-```
-
----
-
-## 4. Data & Queue Strategy
-
-- Explicit message states
-- Retry counters
-- Dead-letter table
-- Idempotent processing via message IDs
-
----
-
-## 5. Key Architectural Improvements
-
-- ThreadPool-based controlled parallelism
-- Structured retry handling
-- Index tuning (Oracle & SQL Server)
-- Enhanced logging and auditing
+- Explicit message states instead of implicit queue behavior
+- Controlled parallelism via ThreadPool instead of unbounded workers
+- Dead-letter table instead of silent drops
+- Idempotent processing to support safe retries
 
 ---
 
@@ -69,35 +58,40 @@ flowchart LR
 - Silent failures → explicit state transitions
 - Duplicate processing → idempotency checks
 - Backlogs → bounded concurrency
+- Partial writes → transactional handling
 
 ---
 
-## 7. Security & Integrity Considerations
+## 7. Security & Operational Considerations
 
 - Message lifecycle auditing
-- Controlled retry policies
-- Reduced data inconsistency risk
+- Retry thresholds to prevent runaway loops
+- Clear operational logging for support teams
 
 ---
 
-## 8. Scaling & Future Evolution
+## 8. Preparing for Future Evolution
 
-- Increased worker parallelism
-- Batch optimization
-- Potential message broker replacement if needed
-
----
-
-## 9. Outcomes
-
-- Reliable synchronization
-- Reduced manual resync
-- Improved throughput
-- Increased operational confidence
+- Scalable worker parallelism
+- Batch optimization potential
+- Future migration path to message broker if required
 
 ---
 
-## Summary
+## 9. What I Would Refine Today
 
-This project demonstrates distributed systems reliability engineering using WCF, SQL-based queues, and disciplined concurrency control in a pre-cloud enterprise environment.
+- Replace SQL queue with managed message broker
+- Introduce distributed tracing for deeper observability
+- Add structured metrics dashboard for backlog monitoring
+
+---
+
+## 10. Outcomes & Lessons
+
+- Reliable synchronization across distributed nodes
+- Reduced manual intervention
+- Improved operational confidence
+- Reinforced importance of explicit state modeling in distributed systems
+
+This project reflects disciplined reliability engineering under enterprise constraints.
 
